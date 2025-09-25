@@ -1,6 +1,6 @@
 #!/bin/bash
-G=\e[31m
-N=\e[37m
+G="\e[31m"
+N="\e[37m"
 
 userid=$(id -u)
 
