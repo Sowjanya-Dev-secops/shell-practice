@@ -1,5 +1,8 @@
 #!/bin/bash
-G="\e[33m"
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
 N="\e[37m"
 
 userid=$(id -u)
@@ -17,5 +20,19 @@ validate(){
         echo "$2 installation is suuccessful"
     fi
 }
-dnf install mysql -y
-validate $? "mysql"
+
+dnf list installed mysql
+if [ $? -ne 0 ]; then
+    dnf install mysql -y
+    validate $? "mysql"
+else
+    echo "mysql is already exist ... $Y skipp $N"
+fi
+
+dnf list installed nginx
+if [ $? -ne 0 ]; then
+    dnf install nginx -y
+    validate $? "nginx"
+else
+    echo "nginx is already exist ... $Y skipp $N"
+fi
