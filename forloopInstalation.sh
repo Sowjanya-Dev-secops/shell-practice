@@ -8,7 +8,7 @@ N="\e[37m"
 user=$(id -u)
 
 if [ $user -ne 0 ]; then
-    echo "$R Error:: $N Please proceed with root user "
+    echo -e "$R Error:: $N Please proceed with root user "
     exit 1
 fi
 VALIDATE(){
@@ -25,5 +25,5 @@ if [ $? -ne 0 ]; then
     dnf instlled mysql -y
     validate $? "mysql"
 else
-    echo -n "mysql is already installed .. $Y SKipp$N"
+    echo -e "mysql is already installed .. $Y SKipp$N"
 fi
