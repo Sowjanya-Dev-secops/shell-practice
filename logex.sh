@@ -10,7 +10,7 @@ mkdir -p $Logs_folder
 Script_Name=$( echo $0 | cut -d "." -f1 )
 Log_File="$Logs_folder/$Script_Name.log"
 
-echo "script execution started at: $(date)"
+echo "script execution started at: $(date)" | tee -a $Log_File
 user=$(id -u)
 
 if [ $user -ne 0 ]; then
