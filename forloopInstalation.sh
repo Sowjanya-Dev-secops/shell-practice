@@ -7,7 +7,7 @@ N="\e[37m"
 
 user=$(id -u)
 
-if [ $? -ne 0 ]; then
+if [ $user -ne 0 ]; then
     echo "$R Error:: $N Please proceed with root user "
     exit 1
 fi
