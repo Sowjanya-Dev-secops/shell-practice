@@ -31,5 +31,5 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y &>> $Log_File
     validate $? mysql
 else
-    echo - e "Installtion of mysql already completed ... $G SKIP"
+    echo -e "Installtion of mysql already completed ... $G SKIP"
 fi
