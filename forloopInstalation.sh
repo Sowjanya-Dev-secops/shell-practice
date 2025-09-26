@@ -9,8 +9,8 @@ user=$(id -u)
 log_folder="/var/log/shell-scripts"
 mkdir -p $log_folder
 
-script_name=$( echo $0 | cut -d "." -f1)
-log_file="$log_folder/$script_name.log"
+script_name=$( echo $0 | cut -d "." -f1 )
+log_file1="$log_folder/$script_name.log"
 
 if [ $user -ne 0 ]; then
     echo -e "$R Error:: $N Please proceed with root user "
@@ -27,7 +27,7 @@ VALIDATE(){
 dnf list installed mysql
 
 if [ $? -ne 0 ]; then
-    dnf install mysql -y &>>$log_file
+    dnf install mysql -y &>>$log_file1
     VALIDATE $? "mysql"
 else
     echo -e "mysql is already installed .. $Y Skipp$N"
