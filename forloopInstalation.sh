@@ -3,10 +3,10 @@
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-N="\e[37m"
+N="\e[37m"s
 
 user=$(id -u)
-log_folder="/var/log/shell-scripts"
+log_folder="/var/log/shell-script"
 mkdir -p $log_folder
 
 script_name=$( echo $0 | cut -d "." -f1 )
@@ -24,11 +24,14 @@ VALIDATE(){
         echo -e "$G Success:: $N $2 installation is successful" 
     fi
 }
-dnf list installed mysql
 
-if [ $? -ne 0 ]; then
-    dnf install mysql -y &>>$log_file1
-    VALIDATE $? "mysql"
-else
-    echo -e "mysql is already installed .. $Y Skipp$N"
-fi
+for Instance in $@
+do
+    dnf list installed $Instance
+    if [ $? -ne 0 ]; then
+        dnf install $Instance -y &>>$log_file1
+        VALIDATE $? "$Instance"
+    else
+        echo -e "$Instance is already installed .. $Y Skipp$N"
+    fi
+done
