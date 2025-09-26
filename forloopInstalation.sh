@@ -27,7 +27,7 @@ VALIDATE(){
 
 for Instance in $@
 do
-    dnf list installed $Instance
+    dnf list installed $Instance &>>$log_file1
     if [ $? -ne 0 ]; then
         dnf install $Instance -y &>>$log_file1
         VALIDATE $? "$Instance"
