@@ -17,6 +17,7 @@ VALIDATE(){
         exit 1
     else
         echo -e "$G Success:: $N $2 installation is successful" 
+    fi
 }
 dnf list installed mysql
 
@@ -25,3 +26,4 @@ if [ $? -ne 0 ]; then
     validate $? "mysql"
 else
     echo -n "mysql is already installed .. $Y SKipp$N"
+fi
