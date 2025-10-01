@@ -7,9 +7,10 @@ if [ ! -d $SCRIPT_DIR ]; then
 fi
 
 file_to_del=$(find $Source_dir -name "*.log" )
+
 while IFS= read -r file_path
 do
     echo "deleting the $file_path"
     rm -rf $file_path
     echo "deleted the $file_path"
-done <<< $Source_dir
+done <<< $file_to_del
