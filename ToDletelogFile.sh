@@ -1,5 +1,5 @@
 #!/bin/bash
-Source_dir="/home/ec2-user/app-logs"
+Source_dir="/home/ec2-user/expense"
 
 if [ ! -d $SCRIPT_DIR ]; then
     echo "ERROR:: SCRIPT_DIR does not exist"
