@@ -20,12 +20,12 @@ fi
 files=$(find $Source_dir -name "*.log" -type f -mtime +14) 
 
 if [  ! -z "${files}" ]; then 
-    echo "files found"
+    echo "files found $file"
     Time_stamp=$(date +%F)
-    echo "Time_stamp"
-    zip_filename="$Destinaton_dir/app-logs.zip"
+    echo "$Time_stamp"
+    zip_filename="$Destinaton_dir/app-logs-$Time_stamp.zip"
     echo "zip file name : $zip_filename"
-    echo $(find $Source_dir -name "*.log" -type f -mtime +14) | zip -@ -j  "zip_filename"
+    find $Source_dir -name "*.log" -type f -mtime +14 | zip -@ -j  "zip_filename"
 
     if [ -f $zip_filename ]; then
         echo " archieval success"
