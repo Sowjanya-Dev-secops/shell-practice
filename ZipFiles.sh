@@ -23,10 +23,17 @@ if [  ! -z "${files}" ]; then
     echo "files found"
     Time_stamp=$(date +%F)
     echo "Time_stamp"
-    echo " "
-    zip_filename=$Destinaton_dir/app-logs.zip
+    zip_filename="$Destinaton_dir/app-logs.zip"
     echo "zip file name : $zip_filename"
     echo $(find $Source_dir -name "*.log" -type f -mtime +14) | zip -@ -j  "zip_filename"
+
+    if [ -f $zip_filename ]; then
+        echo " archieval success"
+    else
+        echo "archeval failure"
+        exit 1
+    fi
+
 
 else
     echo "files not found to archieve"
