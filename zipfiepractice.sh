@@ -36,7 +36,7 @@ if [ ! -z "${log_file}" ]; then
         while IFS= read -r flies
         do
             echo "before deleted the files:$flies"
-            rm -rm $files
+            rm -rf $files
             echo "after deleted the files:$flies"
         done <<< $log_file
     else
