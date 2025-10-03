@@ -23,6 +23,7 @@ if [  ! -z "${files}" ]; then
     echo "files found"
     Time_stamp=$( date +%F-%H-%M )
     echo "Time_stamp"
+    echo " $( date +%F )"
 else
     echo "files not found to archieve"
     exit 1
