@@ -30,6 +30,13 @@ if [  ! -z "${files}" ]; then
 
     if [ -f $zip_filename ]; then
         echo " archieval success"
+        
+        while IFS= read -r filedel
+        do 
+            rm -rf $filedel
+
+        done  <<<files
+
     else
         echo "archeval failure"
         exit 1
