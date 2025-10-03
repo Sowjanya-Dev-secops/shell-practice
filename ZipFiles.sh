@@ -17,13 +17,17 @@ if [ ! -d $Destinaton_dir ]; then
     exit 1
 fi
 
-files=(find $Source_dir -name "*.log" -type f -mtime +14) 
+files=$(find $Source_dir -name "*.log" -type f -mtime +14) 
 
 if [  ! -z "${files}" ]; then 
     echo "files found"
     Time_stamp=$(date +%F)
     echo "Time_stamp"
     echo " "
+    zip_filename=$Destinaton_dir/app-logs.zip
+    echo "zip file name : $zip_filename"
+    echo $(find $Source_dir -name "*.log" -type f -mtime +14) | zip -@ -j  "zip_filename"
+
 else
     echo "files not found to archieve"
     exit 1
