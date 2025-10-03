@@ -25,6 +25,8 @@ fi
 
 log_file=$(find $source_dir -name "*.log" -type f -mtime +14)
 
+echo "$log_file"
+
 if [ ! -z "${log_file}" ]; then
     echo "The log files found"
     timestamp=$( date +%F-%H-%M )
