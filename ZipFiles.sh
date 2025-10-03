@@ -21,7 +21,7 @@ files=(find $Source_dir -name "*.log" -type f -mtime +14)
 
 if [  ! -z "${files}" ]; then 
     echo "files found"
-    Time_stamp=$( date +%F )
+    Time_stamp=$(date +%F)
     echo "Time_stamp"
     echo " "
 else
