@@ -41,7 +41,7 @@ if [ ! -z "${log_file}" ]; then
             echo "Deleting the file: $filepath"
             rm -rf $filepath
             echo "Deleted the file: $filepath"
-        done <<< $Flog_fileILES
+        done <<< $log_file
         
     else
         echo "files archeival failed "
