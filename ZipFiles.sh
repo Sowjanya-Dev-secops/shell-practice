@@ -17,5 +17,5 @@ if [ ! -d $Destinaton_dir ]; then
     exit 1
 fi
 
-_dir=var/log/
+
     
