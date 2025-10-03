@@ -23,7 +23,7 @@ if [ ! -d $Destination_dir ]; then
 fi
 
 
-log_file=$( find $source_dir -name "*.log" -type f -mtime +14)
+log_file=$(find $source_dir -name "*.log" -type f -mtime +14)
 
 if [ ! -z $log_file ]; then
     echo "The log files found"
