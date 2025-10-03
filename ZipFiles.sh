@@ -2,7 +2,7 @@
 Source_dir=$1
 Destinaton_dir=$2
 
-if [ $# -le 2 ]; then
+if [ $# -lt 2 ]; then
     echo "sh backup.sh <source_file> <destination_file>"
     exit 1
 fi
