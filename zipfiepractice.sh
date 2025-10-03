@@ -33,12 +33,14 @@ if [ ! -z "${log_file}" ]; then
 
     if [ -f $zip_file ]; then
         echo "files archeival success"
-        while IFS= read -r flies
+      
+        while IFS= read -r filepath
         do
-            echo "before deleted the files:$flies"
-            rm -rf $files
-            echo "after deleted the files:$flies"
-        done <<< $log_file
+            echo "Deleting the file: $filepath"
+            rm -rf $filepath
+            echo "Deleted the file: $filepath"
+        done <<< $Flog_fileILES
+        
     else
         echo "files archeival failed "
         exit 1
