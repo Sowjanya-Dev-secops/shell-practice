@@ -6,7 +6,7 @@ if [ ! -d $SCRIPT_DIR ]; then
     exit 1
 fi
 
-file_to_del=$(find $Source_dir -name "*.log" )
+file_to_del=$(find $Source_dir -name "*.log" type f -mtime +14)
 
 while IFS= read -r file_path
 do
