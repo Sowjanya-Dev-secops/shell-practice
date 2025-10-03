@@ -25,7 +25,7 @@ fi
 
 log_file=$(find $source_dir -name "*.log" -type f -mtime +14)
 
-if [ ! -z $log_file ]; then
+if [ ! -z "${log_file}" ]; then
     echo "The log files found"
     timestamp=$( date +%F-%H-%M )
     zip_file="$Destination_dir/app-log-$timestamp.zip"
