@@ -33,7 +33,7 @@ if [ ! -z $log_file ]; then
 
     if [ -f $zip_file ]; then
         echo "files archeival success"
-        when IFS= read -r flies
+        while IFS= read -r flies
         do
             echo "before deleted the files:$flies"
             rm -rm $files
